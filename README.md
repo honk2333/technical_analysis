@@ -1,49 +1,57 @@
 # xtechnical_analysis
 C++ 头文件技术分析库，用于算法交易
 
+## 项目信息
+
+- **原作者**：[NewYaroslav](https://github.com/NewYaroslav)
+- **原始仓库**：[https://github.com/NewYaroslav/xtechnical_analysis](https://github.com/NewYaroslav/xtechnical_analysis)
+
 ## 指标
 
-该库包含单个指标和一个通用指标 MW（可以同时执行多个指标的功能）。
+该库包含多种单个指标和一个通用指标 MW（可同时执行多个指标功能的滑动窗口指标）。
 
-## 指标实现的特点
+## 指标实现特点
 
-指标有两种加载价格值的方法。第一种方法称为 *update*，它会更改指标的内部状态。此方法应在柱线关闭时调用。
-指标的 *test* 方法允许了解尚未完全形成的柱线上的指标值。此方法本质上是进行"测试"，告知当前价格下指标的当前值。
-*test* 方法不影响指标的内部状态：指标不会记住 *test* 方法中传递的价格。但是，*test* 方法会将指标切换到"测试"模式，因此指标的所有其他方法将返回与 *test* 方法中传递的价格相关的值。
+指标有两种加载价格值的方法：
 
-这种方法使得在图表上使用指标变得非常简单，当需要随着新 tick 的到来重新绘制尚未形成的柱线上的指标值时。
+1. **update 方法**：会更改指标的内部状态，应在柱线关闭时调用。
+2. **test 方法**：用于了解尚未完全形成的柱线上的指标值，本质上是"测试"当前价格下指标的实时值。
+
+*test* 方法不影响指标的内部状态（指标不会记住 *test* 方法中传递的价格），但会将指标切换到"测试"模式，因此指标的所有其他方法将返回与 *test* 方法中传递的价格相关的值。
+
+这种设计使得在图表上使用指标变得非常简单，特别是当需要随着新 tick 的到来重新绘制尚未形成的柱线上的指标值时。
 
 ### 标准指标
 
-* MinMax
-* FastMinMax
-* MinMaxDiff
-* PRI
-* RSI - 可使用任何移动平均线的 RSI
-* RSHILLMA - 带布林带的 RSI
-* BollingerBands
+* MinMax - 滑动窗口最大值和最小值
+* FastMinMax - 快速最大值和最小值
+* MinMaxDiff - 最大值和最小值差异
+* PRI - 价格相对强度指标
+* RSI - 可使用任何移动平均线的相对强弱指标
+* RSHILLMA - 带布林带的相对强弱指标
+* BollingerBands - 布林带指标
 * CMA - 累积移动平均线
-* VCMA - 带成交量加权实现的累积移动平均线
-* SMA
-* WMA
-* VWMA - 带成交量加权实现的修改移动平均线
-* EMA
-* MMA
-* AMA
-* LRMA - 线性回归指标
-* NoLagMa - 无延迟 MA
+* VCMA - 成交量加权累积移动平均线
+* SMA - 简单移动平均线
+* WMA - 加权移动平均线
+* VWMA - 成交量加权移动平均线
+* EMA - 指数移动平均线
+* MMA - 修正移动平均线
+* AMA - 自适应移动平均线
+* LRMA - 线性回归移动平均线
+* NoLagMa - 无延迟移动平均线
 * LowPassFilter - 低通滤波器
 * AverageSpeed - (指标未验证!)
-* CurrencyCorrelation - (计算相关性)
+* CurrencyCorrelation - 货币相关性计算
 * DetectorWaveform - (指标未验证! 实验性指标)
-* Zscore
+* Zscore - Z分数指标
 * StdDev - 标准偏差
 * DelayEvent - 事件延迟线
 * DelayLine - 延迟线 (指标未验证!)
-* OsMa - 振荡器指标的移动平均线 (指标未验证!)
-* TrendDirectionForceIndex - 可使用任何移动平均线的趋势指标
-* MAV
-* MAZ
+* OsMa - 振荡器移动平均线 (指标未验证!)
+* TrendDirectionForceIndex - 可使用任何移动平均线的趋势方向力量指标
+* MAV - 移动平均线速度
+* MAZ - 移动平均线区域
 
 ### MW 指标
 
