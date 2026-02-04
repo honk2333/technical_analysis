@@ -145,8 +145,8 @@ namespace xtechnical {
             std::vector<double> first_test_window(window_size);
             std::vector<double> second_test_window(window_size);
 
-            xtechnical_normalization::calculate_min_max(first_start_window, first_start_window, 0);
-            xtechnical_normalization::calculate_min_max(second_start_window, second_start_window, 0);
+            xtechnical::normalization::calculate_min_max(first_start_window, first_start_window, 0);
+            xtechnical::normalization::calculate_min_max(second_start_window, second_start_window, 0);
 
             /* сравниваем первое окно со вторым */
             double first_pearson_correlation = 0;
@@ -156,8 +156,8 @@ namespace xtechnical {
                 std::copy(second_data.begin() + index, second_data.begin() + index + window_size, second_test_window.begin());
                 /* нормализуем и считаем корреляцию */
                 double pearson_correlation = 0;
-                xtechnical_normalization::calculate_min_max(second_test_window, second_test_window, 0);
-                xtechnical_correlation::calculate_pearson_correlation_coefficient(first_start_window, second_test_window, pearson_correlation);
+                xtechnical::normalization::calculate_min_max(second_test_window, second_test_window, 0);
+                xtechnical::correlation::calculate_pearson_correlation_coefficient(first_start_window, second_test_window, pearson_correlation);
 
                 if(std::abs(pearson_correlation) >= std::abs(first_pearson_correlation)) {
                     first_pearson_correlation = pearson_correlation;
@@ -173,8 +173,8 @@ namespace xtechnical {
                 std::copy(first_data.begin() + index, first_data.begin() + index + window_size, first_test_window.begin());
                 /* нормализуем и считаем корреляцию */
                 double pearson_correlation = 0;
-                xtechnical_normalization::calculate_min_max(first_test_window, first_test_window, 0);
-                xtechnical_correlation::calculate_pearson_correlation_coefficient(second_start_window, first_test_window, pearson_correlation);
+                xtechnical::normalization::calculate_min_max(first_test_window, first_test_window, 0);
+                xtechnical::correlation::calculate_pearson_correlation_coefficient(second_start_window, first_test_window, pearson_correlation);
 
                 if(std::abs(pearson_correlation) >= std::abs(second_pearson_correlation)) {
                     second_pearson_correlation = pearson_correlation;

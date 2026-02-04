@@ -20,15 +20,38 @@ endif()
 
 # 测试文件列表
 set(TEST_FILES
-    code_blocks/test/body_filter.cpp
-    code_blocks/test/trend_direction_force_index.cpp
-    code_blocks/test/super_trend.cpp
-    code_blocks/test/period_stats.cpp
-    code_blocks/test/cluster_shaper.cpp
-    code_blocks/test/cci.cpp
-    code_blocks/test/atr.cpp
-    code_blocks/test/fractals.cpp
-    code_blocks/test/ssa.cpp
+    tests/body_filter.cpp
+    tests/trend_direction_force_index.cpp
+    tests/super_trend.cpp
+    tests/period_stats.cpp
+    tests/cluster_shaper.cpp
+    tests/cci.cpp
+    tests/atr.cpp
+    tests/fractals.cpp
+    tests/ssa.cpp
+    tests/check-lrma/check-lrma.cpp
+    tests/check-rshillma/check-rshillma.cpp
+    tests/check-td/check-td.cpp
+    tests/check_bb/check_bb.cpp
+    tests/check_crsi/check_crsi.cpp
+    tests/check_delay_line/check_delay_line.cpp
+    tests/check_fft/check_fft.cpp
+    tests/check_indicators/check_indicators.cpp
+    tests/check_maz/check_maz.cpp
+    tests/check_min_max/check_min_max.cpp
+    tests/check_min_max_difference/check_min_max_difference.cpp
+    tests/check_pri/check_pri.cpp
+    tests/check_sma/check_sma.cpp
+    tests/check_stochastics/check_stochastics.cpp
+    tests/check_sum/check_sum.cpp
+    tests/check_zscore/check_zscore.cpp
+    tests/checking_circular_buffer/checking_circular_buffer.cpp
+    tests/checking_delay_measurement/checking_delay_measurement.cpp
+    tests/checking_least_square_method/checking_least_square_method.cpp
+    tests/checking_normalization/checking_normalization.cpp
+    tests/checking_statistical_indicators/checking_statistical_indicators.cpp
+    tests/checking_statistics/checking_statistics.cpp
+    tests/cmp_min_max_witch_streaming_min_max/cmp_min_max_witch_streaming_min_max.cpp
 )
 
 # 为每个测试文件创建可执行目标
@@ -75,10 +98,23 @@ endforeach()
 # 添加一个目标来编译所有测试
 add_custom_target(all_tests)
 foreach(TEST_FILE ${TEST_FILES})
+    # 从文件路径中提取目标名称
     get_filename_component(TEST_NAME ${TEST_FILE} NAME_WE)
     add_dependencies(all_tests ${TEST_NAME})
 endforeach()
 
+# 添加CTest支持
+enable_testing()
+foreach(TEST_FILE ${TEST_FILES})
+    # 从文件路径中提取目标名称
+    get_filename_component(TEST_NAME ${TEST_FILE} NAME_WE)
+    # 添加测试
+    add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
+endforeach()
+
 message(STATUS "CMake configuration completed successfully!")
 message(STATUS "To compile all tests, run: cmake --build .")
+message(STATUS "To run all tests, run: ctest")
+message(STATUS "To run all tests with verbose output, run: ctest -v")
 message(STATUS "To run a specific test, run: ./<test_name>")
+message(STATUS "To run a specific test with ctest, run: ctest -R <test_name>")

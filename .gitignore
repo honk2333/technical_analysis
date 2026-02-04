@@ -4,5 +4,6 @@
 *testing/*/bin
 *code_blocks/*/bin
 build/*
+.cache/*
 *.png
 
