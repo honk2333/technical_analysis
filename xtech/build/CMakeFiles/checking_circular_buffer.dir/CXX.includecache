@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/xtechnical_circular_buffer.hpp
+vector
+-
+
+/home/wanghk/code/xtechnical_analysis/xtech/tests/checking_circular_buffer/checking_circular_buffer.cpp
+iostream
+-
+xtechnical_circular_buffer.hpp
+/home/wanghk/code/xtechnical_analysis/xtech/tests/checking_circular_buffer/xtechnical_circular_buffer.hpp
+array
+-
+

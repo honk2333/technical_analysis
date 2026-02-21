@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/xtechnical_regression_analysis.hpp
+
+/home/wanghk/code/xtechnical_analysis/xtech/tests/checking_least_square_method/checking_least_square_method.cpp
+iostream
+-
+xtechnical_regression_analysis.hpp
+/home/wanghk/code/xtechnical_analysis/xtech/tests/checking_least_square_method/xtechnical_regression_analysis.hpp
+array
+-
+vector
+-
+

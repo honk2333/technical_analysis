@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/check_pri.dir/tests/check_pri/check_pri.cpp.o  -o check_pri 

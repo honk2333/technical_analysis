@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/check_maz.dir/tests/check_maz/check_maz.cpp.o  -o check_maz 

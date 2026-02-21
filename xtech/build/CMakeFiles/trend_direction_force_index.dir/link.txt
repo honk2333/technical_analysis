@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/trend_direction_force_index.dir/tests/trend_direction_force_index.cpp.o  -o trend_direction_force_index 

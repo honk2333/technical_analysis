@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/xtechnical_statistics.hpp
+vector
+-
+cmath
+-
+algorithm
+-
+
+/home/wanghk/code/xtechnical_analysis/xtech/tests/checking_statistics/checking_statistics.cpp
+iostream
+-
+xtechnical_statistics.hpp
+/home/wanghk/code/xtechnical_analysis/xtech/tests/checking_statistics/xtechnical_statistics.hpp
+array
+-
+vector
+-
+

@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/super_trend.dir/tests/super_trend.cpp.o  -o super_trend 

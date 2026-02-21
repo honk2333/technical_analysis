@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/ssa.dir/tests/ssa.cpp.o  -o ssa 

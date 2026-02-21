@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/checking_statistics.dir/tests/checking_statistics/checking_statistics.cpp.o  -o checking_statistics 

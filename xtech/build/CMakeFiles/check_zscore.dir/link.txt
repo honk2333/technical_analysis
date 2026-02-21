@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/check_zscore.dir/tests/check_zscore/check_zscore.cpp.o  -o check_zscore 

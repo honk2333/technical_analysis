@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/check_sma.dir/tests/check_sma/check_sma.cpp.o  -o check_sma 
