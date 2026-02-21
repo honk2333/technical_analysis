@@ -6,4 +6,5 @@
 build/*
 .cache/*
 *.png
-
+Testing/*
+.trae/*
